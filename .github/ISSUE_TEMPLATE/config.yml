@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Urgent 1:1 supervision
+    url: mailto:shawn@faims.edu.au
+    about: For time-critical project issues that can't wait for the next session.
+  - name: Canvas discussion board (backup)
+    url: https://canvas.anu.edu.au/
+    about: If GitHub itself is the blocker (rather than your research question), use Canvas.

@@ -1,0 +1,128 @@
+name: Hacky-hour blocker
+description: Submit a specific blocker or question for a hacky-hour session.
+title: "[Topic] Brief description of your blocker"
+labels: ["triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before you submit
+
+        Hacky hours work best when everyone comes prepared. Before
+        you open an issue, please:
+
+        1. **Consult your favourite LLM** — adapt the class learning
+           prompt (`prompts/learning-prompt.md`) to your topic and
+           work through at least the clarifying questions and first
+           step.
+        2. **Try something concrete.** Even if it doesn't work,
+           you'll learn more from a failed attempt than from asking
+           cold.
+        3. **Then submit this issue** describing exactly where you
+           got stuck.
+
+        Issues submitted less than 24 hours before the session may
+        not make it into the group discussion, but will still be
+        seen in the open floor.
+
+  - type: dropdown
+    id: session
+    attributes:
+      label: Which session is this for?
+      description: Pick the session where you'd like this question discussed.
+      options:
+        - Week 9 Hour 2 — Python for humanities (foundation)
+        - Week 10 Hour 1 — Python NLP + APIs
+        - Week 10 Hour 2 — Zotero + Voyant
+        - Week 11 Hour 1 — Multimodal / Qualitative coding
+        - Week 11 Hour 2 — Discussion + PICO clinic (but prefer Canvas for this one)
+        - Not sure — instructor can assign
+    validations:
+      required: true
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      description: The primary topic this blocker relates to.
+      options:
+        - Python (scripting, pandas, basics)
+        - Python NLP (NLTK, spaCy, text analysis)
+        - APIs (authentication, requests, rate limits)
+        - Zotero (references, group libraries)
+        - Voyant Tools (text analysis, no-code)
+        - Multimodal / video analysis
+        - Qualitative coding / thematic analysis
+        - Discussion section writing
+        - PICO presentation preparation
+        - Web scraping / data collection
+        - VS Code / Copilot
+        - Git / GitHub
+        - Other — describe below
+    validations:
+      required: true
+
+  - type: textarea
+    id: project-context
+    attributes:
+      label: Your project in one sentence
+      description: A brief reminder of what your project is about, so we can tailor the answer.
+      placeholder: "I'm analysing sentiment trends in Xiaohongshu beauty product reviews from 2023-2025."
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-you-tried
+    attributes:
+      label: What you've already tried
+      description: |
+        What did your LLM tutorial cover? What did you attempt on your
+        own? Include specific commands, tools, or approaches you've
+        tested. If something produced an error, paste the error
+        message here.
+      placeholder: |
+        - Worked through the class learning prompt with Claude, covered
+          basic pandas operations
+        - Tried `df = pd.read_csv('reviews.csv', encoding='utf-8')` but
+          got UnicodeDecodeError at line 3
+        - Read the pandas docs on encodings, tried `encoding='gbk'`
+          which opened the file but shows garbled text for some rows
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: where-stuck
+    attributes:
+      label: Where you're stuck
+      description: |
+        The specific question or decision you need help with. The
+        more concrete, the better.
+      placeholder: |
+        Some rows of my CSV have Chinese characters that display as
+        ??? after loading. I think it's an encoding issue but don't
+        know how to detect which encoding each row actually uses, or
+        whether there's a way to handle mixed encodings in one file.
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else we should know?
+      description: Optional. Deadline pressure, related course context, other attempts you considered.
+      placeholder: "This is blocking my A3 analysis — I need to resolve it by next week."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Prep check
+      description: Please confirm before submitting.
+      options:
+        - label: I've consulted an LLM about this topic before submitting.
+          required: true
+        - label: I've tried at least one concrete approach before asking.
+          required: true
