@@ -8,35 +8,71 @@ body:
       value: |
         ## Before you submit
 
-        Hacky hours work best when everyone comes prepared. Before
-        you open an issue, please:
+        Hacky hours are for *I'm stuck and want help unsticking.*
+        Aim to fill this in within 3–5 minutes. Concrete blockers
+        get better answers than vague ones, but don't let polish
+        stop you submitting.
 
-        1. **Consult your favourite LLM** — adapt the class learning
-           prompt (`prompts/learning-prompt.md`) to your topic and
-           work through at least the clarifying questions and first
-           step.
-        2. **Try something concrete.** Even if it doesn't work,
-           you'll learn more from a failed attempt than from asking
-           cold.
-        3. **Then submit this issue** describing exactly where you
-           got stuck.
+        Issues submitted at least 24 hours before the session are
+        most likely to be picked for the group discussion. Later
+        submissions still get seen in the open-floor segment.
 
-        Issues submitted less than 24 hours before the session may
-        not make it into the group discussion, but will still be
-        seen in the open floor.
+  - type: checkboxes
+    id: self-help-first
+    attributes:
+      label: Self-help first (please confirm both)
+      description: |
+        Hacky hours are for unsticking after self-help has run its
+        course — *for any kind of blocker, not only technical ones*.
+        Whether you're stuck on a Python error, a synthesis paragraph,
+        a research question, or a Zotero workflow: try the learning
+        prompt and something concrete first, then bring us what you
+        got stuck on after that.
+      options:
+        - label: I consulted the class learning prompt (`prompts/learning-prompt.md`) or another LLM and worked through what it suggested
+          required: true
+        - label: I tried something concrete — drafting, sketching, searching, coding, configuring, reading, or whatever the blocker called for — and made it as far as I could on my own
+          required: true
+
+  - type: dropdown
+    id: week
+    attributes:
+      label: Which week is this for?
+      description: Used for triage and end-of-semester reflection.
+      options:
+        - Week 9 (5–6 May)
+        - Week 10 (12–13 May)
+        - Week 11 (19–20 May)
+        - Week 12 (26–27 May)
+        - Not sure — instructor can assign
+    validations:
+      required: true
 
   - type: dropdown
     id: session
     attributes:
-      label: Which session is this for?
+      label: Which session?
       description: Pick the session where you'd like this question discussed.
       options:
         - Week 9 Hour 2 — Python for humanities (foundation)
         - Week 10 Hour 1 — Python NLP + APIs
         - Week 10 Hour 2 — Zotero + Voyant
         - Week 11 Hour 1 — Multimodal / Qualitative coding
-        - Week 11 Hour 2 — Discussion + PICO clinic (but prefer Canvas for this one)
+        - Week 11 Hour 2 — Discussion + PICO clinic (prefer Canvas for this one)
+        - Week 12 — Final PICO presentation prep
         - Not sure — instructor can assign
+    validations:
+      required: true
+
+  - type: dropdown
+    id: assessment
+    attributes:
+      label: Which assessment is this connected to?
+      description: Helps us see whether class time is meeting A3 needs.
+      options:
+        - Assessment 3 (paper)
+        - Final PICO presentation
+        - Other / general skill-building
     validations:
       required: true
 
@@ -53,6 +89,7 @@ body:
         - Voyant Tools (text analysis, no-code)
         - Multimodal / video analysis
         - Qualitative coding / thematic analysis
+        - Literature review / synthesis
         - Discussion section writing
         - PICO presentation preparation
         - Web scraping / data collection
@@ -63,30 +100,29 @@ body:
       required: true
 
   - type: textarea
-    id: project-context
+    id: goal
     attributes:
-      label: Your project in one sentence
-      description: A brief reminder of what your project is about, so we can tailor the answer.
-      placeholder: "I'm analysing sentiment trends in Xiaohongshu beauty product reviews from 2023-2025."
+      label: What you're trying to do
+      description: One or two sentences on the bigger task this blocker is part of.
+      placeholder: |
+        I'm trying to get my Assessment 3 paper's literature review
+        section into a working draft.
     validations:
       required: true
 
   - type: textarea
     id: what-you-tried
     attributes:
-      label: What you've already tried
+      label: What you've tried so far
       description: |
-        What did your LLM tutorial cover? What did you attempt on your
-        own? Include specific commands, tools, or approaches you've
-        tested. If something produced an error, paste the error
-        message here.
+        A short list or paragraph — so we don't suggest things
+        you've already tested. Paste any error messages in a
+        fenced code block (three backticks before and after).
       placeholder: |
-        - Worked through the class learning prompt with Claude, covered
-          basic pandas operations
-        - Tried `df = pd.read_csv('reviews.csv', encoding='utf-8')` but
-          got UnicodeDecodeError at line 3
-        - Read the pandas docs on encodings, tried `encoding='gbk'`
-          which opened the file but shows garbled text for some rows
+        - I have a list of 12 sources and drafted the
+          gap-and-positioning move.
+        - I tried grouping sources by method, then by theme.
+        - The synthesis paragraphs aren't connecting.
       render: markdown
     validations:
       required: true
@@ -96,14 +132,27 @@ body:
     attributes:
       label: Where you're stuck
       description: |
-        The specific question or decision you need help with. The
-        more concrete, the better.
+        The specific point at which progress halted. The more
+        concrete, the better.
       placeholder: |
-        Some rows of my CSV have Chinese characters that display as
-        ??? after loading. I think it's an encoding issue but don't
-        know how to detect which encoding each row actually uses, or
-        whether there's a way to handle mixed encodings in one file.
+        I can't tell if my synthesis paragraphs are showing the
+        gap clearly, or if I'm just summarising sources one after
+        another.
       render: markdown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: help-kind
+    attributes:
+      label: What kind of help do you want?
+      description: Helps with triage and pacing during the session.
+      options:
+        - Quick advice (10 minutes)
+        - Pair through it together (~30 minutes)
+        - Debugging or troubleshooting (technical)
+        - Orientation — where do I even start
+        - Other (describe in the box below)
     validations:
       required: true
 
@@ -111,18 +160,9 @@ body:
     id: extra
     attributes:
       label: Anything else we should know?
-      description: Optional. Deadline pressure, related course context, other attempts you considered.
-      placeholder: "This is blocking my A3 analysis — I need to resolve it by next week."
+      description: |
+        Optional. Deadline pressure, related context, links to
+        a draft or notebook, or anything else that would help.
+      placeholder: "This is blocking my A3 introduction — I'd like to resolve it before Week 11."
     validations:
       required: false
-
-  - type: checkboxes
-    id: confirmation
-    attributes:
-      label: Prep check
-      description: Please confirm before submitting.
-      options:
-        - label: I've consulted an LLM about this topic before submitting.
-          required: true
-        - label: I've tried at least one concrete approach before asking.
-          required: true
