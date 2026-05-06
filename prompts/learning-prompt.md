@@ -32,32 +32,19 @@ is typical.
 
 **About my project:**
 
-[PASTE YOUR PROJECT DESCRIPTION HERE — one paragraph covering your
-research question, the data or sources you're working with, your
-timeline, and the approach or method you're planning to use. Copy
-from your Assessment 1 proposal or Assessment 2 lit review if
-helpful.]
+My HUMN8031 research project investigates artificial intimacy in ChatGPT, focusing on how users experience ChatGPT as emotionally supportive, companion-like, or personally continuous, even though it is not officially designed as a companion AI system. My research question asks how ChatGPT’s visible textual features and platform functions, such as memory, personalization, repeated response patterns, and supportive phrasing, help construct relational effects such as empathy, persona continuity, and intimacy. I am also interested in moments of “database disillusionment,” where users begin to describe ChatGPT as generic, mechanical, repetitive, or no longer personally responsive. My main data sources are OpenAI’s public documentation on memory and personalization, together with public Reddit discussions from r/ChatGPT and r/OpenAI between 2024 and 2026. I originally planned to manually curate a small number of posts, but my proposal feedback suggested that the Reddit data should be scaled up. My current plan is to use Reddit API/PRAW to collect around 200–300 relevant posts or comments, export the data to CSV, and then use qualitative discourse analysis to examine how users describe, question, or renegotiate their relationships with ChatGPT.
 
 **My current skill level:**
 
-[DESCRIBE WHAT YOU ALREADY KNOW. Be honest — "I've never used
-Python" or "I've taken one programming course but haven't used it
-for research" or "I'm comfortable with basic scripting but have
-never made an API call" all lead to different tutorials. Include
-what tools you already use confidently.]
+I am a beginner in Python. I understand my humanities research question and I can work with academic sources, Zotero, literature review writing, and qualitative interpretation, but I have limited experience using Python for data collection. I have not used the Reddit API or PRAW before, and I am not confident about API credentials, writing scripts, removing duplicates, or exporting data into CSV. I have used LLMs such as ChatGPT or Copilot to help with brainstorming, checking structure, and understanding technical explanations, but I still need step-by-step guidance for actually collecting and organizing research data.
 
 **What I want to learn:**
 
-[NAME THE TOPIC — e.g. "Python for humanities research (reading
-CSV data, using pandas to filter and summarise)", or "making API
-calls to the HuggingFace Inference API for sentiment analysis", or
-"using Voyant Tools to analyse word frequency in a corpus of
-reviews". Be as specific as you can.]
+I want to learn how to use Python and the Reddit API/PRAW for humanities research. Specifically, I want to learn how to search public Reddit posts and comments from r/ChatGPT and r/OpenAI using multiple keywords, collect relevant metadata such as title, post text, comment text, date, score, number of comments, subreddit, permalink, and matched keyword, remove duplicate results, and export the dataset into a CSV file. I also want to understand how to decide whether my unit of analysis should be posts, comments, or post-comment pairs, because my final project will use the collected material for qualitative coding and discourse analysis rather than purely quantitative analysis.
 
 **Why this matters for my project:**
 
-[ONE OR TWO SENTENCES — how you plan to apply this skill to the
-project you described above.]
+This skill matters because my project cannot rely only on a few manually selected examples. Using the Reddit API will allow me to build a larger and more systematic dataset of public user discourse about ChatGPT, artificial intimacy, repeated/generic comfort responses, memory/personality changes, and relational rupture. This will make my final analysis more credible and better aligned with the proposal feedback that my data collection needs to be scaled up.
 
 ---
 
